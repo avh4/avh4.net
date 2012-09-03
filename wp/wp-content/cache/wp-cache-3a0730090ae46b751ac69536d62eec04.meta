@@ -1,1 +1,1 @@
-O:9:"cachemeta":5:{s:7:"dynamic";b:0;s:7:"headers";a:2:{i:0;s:44:"Last-Modified: Sat, 05 Jul 2008 02:10:43 GMT";i:1;s:38:"Content-Type: text/html; charset=UTF-8";}s:3:"uri";s:16:"www.avh4.net/wp/";s:4:"post";i:0;s:7:"blog_id";i:1;}
+O:9:"CacheMeta":5:{s:7:"dynamic";b:0;s:7:"headers";a:3:{i:0;s:38:"Content-Type: text/html; charset=UTF-8";i:1;s:45:"X-Pingback: http://www.avh4.net/wp/xmlrpc.php";i:2;s:44:"Last-Modified: Mon, 03 Sep 2012 05:01:18 GMT";}s:3:"uri";s:16:"www.avh4.net/wp/";s:4:"post";i:0;s:7:"blog_id";i:1;}

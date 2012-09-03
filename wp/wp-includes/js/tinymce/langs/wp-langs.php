@@ -1,14 +1,27 @@
 <?php
 
+function mce_put_file( $path, $content ) {
+	if ( function_exists('file_put_contents') )
+		return @file_put_contents( $path, $content );
+
+	$newfile = false;
+	$fp = @fopen( $path, 'wb' );
+	if ($fp) {
+		$newfile = fwrite( $fp, $content );
+		fclose($fp);
+	}
+	return $newfile;
+}
+
 // escape text only if it needs translating
 function mce_escape($text) {
 	global $language;
-	
+
 	if ( 'en' == $language ) return $text;
-	else return js_escape($text);
+	else return esc_js($text);
 }
 
-$strings = 'tinyMCE.addI18n({' . $language . ':{
+$lang = 'tinyMCE.addI18n({' . $language . ':{
 common:{
 edit_confirm:"' . mce_escape( __('Do you want to use the WYSIWYG mode for this textarea?') ) . '",
 apply:"' . mce_escape( __('Apply') ) . '",
@@ -26,15 +39,15 @@ invalid_data:"' . mce_escape( __('Error: Invalid values entered, these are marke
 more_colors:"' . mce_escape( __('More colors') ) . '"
 },
 contextmenu:{
-align:"' . mce_escape( __('Alignment') ) . '",
-left:"' . mce_escape( __('Left') ) . '",
-center:"' . mce_escape( __('Center') ) . '",
-right:"' . mce_escape( __('Right') ) . '",
-full:"' . mce_escape( __('Full') ) . '"
+align:"' . mce_escape( /* translators: alignment */ __('Alignment') ) . '",
+left:"' . mce_escape( /* translators: alignment */ __('Left') ) . '",
+center:"' . mce_escape( /* translators: alignment */ __('Center') ) . '",
+right:"' . mce_escape( /* translators: alignment */ __('Right') ) . '",
+full:"' . mce_escape( /* translators: alignment */ __('Full') ) . '"
 },
 insertdatetime:{
-date_fmt:"' . mce_escape( __('%Y-%m-%d') ) . '",
-time_fmt:"' . mce_escape( __('%H:%M:%S') ) . '",
+date_fmt:"' . mce_escape( /* translators: year, month, date */ __('%Y-%m-%d') ) . '",
+time_fmt:"' . mce_escape( /* translators: hours, minutes, seconds */ __('%H:%M:%S') ) . '",
 insertdate_desc:"' . mce_escape( __('Insert date') ) . '",
 inserttime_desc:"' . mce_escape( __('Insert time') ) . '",
 months_long:"' . mce_escape( __('January').','.__('February').','.__('March').','.__('April').','.__('May').','.__('June').','.__('July').','.__('August').','.__('September').','.__('October').','.__('November').','.__('December') ) . '",
@@ -137,8 +150,8 @@ desc:"' . mce_escape( __('Toggle fullscreen mode') ) . ' (Alt+Shift+G)"
 },
 media:{
 desc:"' . mce_escape( __('Insert / edit embedded media') ) . '",
-delta_width:"' . mce_escape( _c('0| Extra width for the media popup in pixels') ) . '",
-delta_height:"' . mce_escape( _c('0| Extra height for the media popup in pixels') ) . '",
+delta_width:"' . /* translators: Extra width for the media popup in pixels */ mce_escape( _x('0', 'media popup width') ) . '",
+delta_height:"' . /* translators: Extra height for the media popup in pixels */ mce_escape( _x('0', 'media popup height') ) . '",
 edit:"' . mce_escape( __('Edit embedded media') ) . '"
 },
 fullpage:{
@@ -162,11 +175,11 @@ no_sug:"' . mce_escape( __('No suggestions') ) . '",
 no_mpell:"' . mce_escape( __('No misspellings found.') ) . '"
 },
 pagebreak:{
-desc:"' . mce_escape( __('Insert page break.') ) . '"
+desc:"' . mce_escape( __('Insert Page Break') ) . '"
 }}});
 
 tinyMCE.addI18n("' . $language . '.advanced",{
-style_select:"' . mce_escape( __('Styles') ) . '",
+style_select:"' . mce_escape( /* translators: TinyMCE font styles */ _x('Styles', 'TinyMCE font styles') ) . '",
 font_size:"' . mce_escape( __('Font size') ) . '",
 fontdefault:"' . mce_escape( __('Font family') ) . '",
 block:"' . mce_escape( __('Format') ) . '",
@@ -189,10 +202,10 @@ bold_desc:"' . mce_escape( __('Bold') ) . ' (Ctrl / Alt+Shift + B)",
 italic_desc:"' . mce_escape( __('Italic') ) . ' (Ctrl / Alt+Shift + I)",
 underline_desc:"' . mce_escape( __('Underline') ) . '",
 striketrough_desc:"' . mce_escape( __('Strikethrough') ) . ' (Alt+Shift+D)",
-justifyleft_desc:"' . mce_escape( __('Align left') ) . ' (Alt+Shift+L)",
-justifycenter_desc:"' . mce_escape( __('Align center') ) . ' (Alt+Shift+C)",
-justifyright_desc:"' . mce_escape( __('Align right') ) . ' (Alt+Shift+R)",
-justifyfull_desc:"' . mce_escape( __('Align full') ) . ' (Alt+Shift+J)",
+justifyleft_desc:"' . mce_escape( __('Align Left') ) . ' (Alt+Shift+L)",
+justifycenter_desc:"' . mce_escape( __('Align Center') ) . ' (Alt+Shift+C)",
+justifyright_desc:"' . mce_escape( __('Align Right') ) . ' (Alt+Shift+R)",
+justifyfull_desc:"' . mce_escape( __('Align Full') ) . ' (Alt+Shift+J)",
 bullist_desc:"' . mce_escape( __('Unordered list') ) . ' (Alt+Shift+U)",
 numlist_desc:"' . mce_escape( __('Ordered list') ) . ' (Alt+Shift+O)",
 outdent_desc:"' . mce_escape( __('Outdent') ) . '",
@@ -200,12 +213,12 @@ indent_desc:"' . mce_escape( __('Indent') ) . '",
 undo_desc:"' . mce_escape( __('Undo') ) . ' (Ctrl+Z)",
 redo_desc:"' . mce_escape( __('Redo') ) . ' (Ctrl+Y)",
 link_desc:"' . mce_escape( __('Insert/edit link') ) . ' (Alt+Shift+A)",
-link_delta_width:"' . mce_escape( _c('0| Extra width for the link popup in pixels') ) . '",
-link_delta_height:"' . mce_escape( _c('0| Extra height for the link popup in pixels') ) . '",
+link_delta_width:"' . /* translators: Extra width for the link popup in pixels */ mce_escape( _x('0', 'link popup width') ) . '",
+link_delta_height:"' . /* translators: Extra height for the link popup in pixels */ mce_escape( _x('0', 'link popup height') ) . '",
 unlink_desc:"' . mce_escape( __('Unlink') ) . ' (Alt+Shift+S)",
 image_desc:"' . mce_escape( __('Insert/edit image') ) . ' (Alt+Shift+M)",
-image_delta_width:"' . mce_escape( _c('0| Extra width for the image popup in pixels') ) . '",
-image_delta_height:"' . mce_escape( _c('0| Extra height for the image popup in pixels') ) . '",
+image_delta_width:"' . /* translators: Extra width for the image popup in pixels */ mce_escape( _x('0', 'image popup width') ) . '",
+image_delta_height:"' . /* translators: Extra height for the image popup in pixels */ mce_escape( _x('0', 'image popup height') ) . '",
 cleanup_desc:"' . mce_escape( __('Cleanup messy code') ) . '",
 code_desc:"' . mce_escape( __('Edit HTML Source') ) . '",
 sub_desc:"' . mce_escape( __('Subscript') ) . '",
@@ -229,8 +242,8 @@ path:"' . mce_escape( __('Path') ) . '",
 newdocument:"' . mce_escape( __('Are you sure you want to clear all contents?') ) . '",
 toolbar_focus:"' . mce_escape( __('Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X') ) . '",
 more_colors:"' . mce_escape( __('More colors') ) . '",
-colorpicker_delta_width:"' . mce_escape( _c('0| Extra width for the colorpicker popup in pixels') ) . '",
-colorpicker_delta_height:"' . mce_escape( _c('0| Extra height for the colorpicker popup in pixels') ) . '"
+colorpicker_delta_width:"' . /* translators: Extra width for the colorpicker popup in pixels */ mce_escape( _x('0', 'colorpicker popup width') ) . '",
+colorpicker_delta_height:"' . /* translators: Extra height for the colorpicker popup in pixels */ mce_escape( _x('0', 'colorpicker popup height') ) . '"
 });
 
 tinyMCE.addI18n("' . $language . '.advanced_dlg",{
@@ -323,7 +336,7 @@ correction:"' . mce_escape( __('No correction') ) . '",
 enablejavascript:"' . mce_escape( __('Enable JavaScript') ) . '",
 starttime:"' . mce_escape( __('Start time') ) . '",
 endtime:"' . mce_escape( __('End time') ) . '",
-href:"' . mce_escape( __('Href') ) . '",
+href:"' . mce_escape( __('href') ) . '",
 qtsrcchokespeed:"' . mce_escape( __('Choke speed') ) . '",
 target:"' . mce_escape( __('Target') ) . '",
 volume:"' . mce_escape( __('Volume') ) . '",
@@ -391,11 +404,52 @@ flv_jscallback:"' . mce_escape( __('JS Callback') ) . '"
 
 tinyMCE.addI18n("' . $language . '.wordpress",{
 wp_adv_desc:"' . mce_escape( __('Show/Hide Kitchen Sink') )  . ' (Alt+Shift+Z)",
-wp_more_desc:"' . mce_escape( __('Insert More tag') ) . ' (Alt+Shift+T)",
+wp_more_desc:"' . mce_escape( __('Insert More Tag') ) . ' (Alt+Shift+T)",
 wp_page_desc:"' . mce_escape( __('Insert Page break') ) . ' (Alt+Shift+P)",
 wp_help_desc:"' . mce_escape( __('Help') ) . ' (Alt+Shift+H)",
 wp_more_alt:"' . mce_escape( __('More...') ) . '",
-wp_page_alt:"' . mce_escape( __('Next page...') ) . '"
+wp_page_alt:"' . mce_escape( __('Next page...') ) . '",
+add_media:"' . mce_escape( __('Add Media') ) . '",
+add_image:"' . mce_escape( __('Add an Image') ) . '",
+add_video:"' . mce_escape( __('Add Video') ) . '",
+add_audio:"' . mce_escape( __('Add Audio') ) . '",
+editgallery:"' . mce_escape( __('Edit Gallery') ) . '",
+delgallery:"' . mce_escape( __('Delete Gallery') ) . '"
 });
-'; 
-?>
+
+tinyMCE.addI18n("' . $language . '.wpeditimage",{
+edit_img:"' . mce_escape( __('Edit Image') )  . '",
+del_img:"' . mce_escape( __('Delete Image') )  . '",
+adv_settings:"' . mce_escape( __('Advanced Settings') )  . '",
+none:"' . mce_escape( __('None') )  . '",
+size:"' . mce_escape( __('Size') ) . '",
+thumbnail:"' . mce_escape( __('Thumbnail') ) . '",
+medium:"' . mce_escape( __('Medium') ) . '",
+full_size:"' . mce_escape( __('Full Size') ) . '",
+current_link:"' . mce_escape( __('Current Link') ) . '",
+link_to_img:"' . mce_escape( __('Link to Image') ) . '",
+link_help:"' . mce_escape( __('Enter a link URL or click above for presets.') ) . '",
+adv_img_settings:"' . mce_escape( __('Advanced Image Settings') ) . '",
+source:"' . mce_escape( __('Source') )  . '",
+width:"' . mce_escape( __('Width') ) . '",
+height:"' . mce_escape( __('Height') ) . '",
+orig_size:"' . mce_escape( __('Original Size') ) . '",
+css:"' . mce_escape( __('CSS Class') ) . '",
+adv_link_settings:"' . mce_escape( __('Advanced Link Settings') )  . '",
+link_rel:"' . mce_escape( __('Link Rel') ) . '",
+height:"' . mce_escape( __('Height') ) . '",
+orig_size:"' . mce_escape( __('Original Size') ) . '",
+css:"' . mce_escape( __('CSS Class') ) . '",
+s60:"' . mce_escape( __('60%') ) . '",
+s70:"' . mce_escape( __('70%') ) . '",
+s80:"' . mce_escape( __('80%') ) . '",
+s90:"' . mce_escape( __('90%') ) . '",
+s100:"' . mce_escape( __('100%') ) . '",
+s110:"' . mce_escape( __('110%') ) . '",
+s120:"' . mce_escape( __('120%') ) . '",
+s130:"' . mce_escape( __('130%') ) . '",
+img_title:"' . mce_escape( __('Edit Image Title') ) . '",
+caption:"' . mce_escape( __('Edit Image Caption') ) . '",
+alt:"' . mce_escape( __('Edit Alternate Text') ) . '"
+});
+';
