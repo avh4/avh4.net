@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<content collectionGUID="1BA6EEF9-F1C8-4B21-BB2E-25ABF7EC65DE">
+  <lastEdited clientType="local-build-20080330" date="2008-03-30 19:29:38 -0700"/>
+  <textBox id="generic-header-attribute" dynamic="no" visible="yes">
+    <richText>&lt;b&gt;Time Tracker Development Progress&lt;/b&gt;</richText>
+  </textBox>
+  <textBox id="generic-title-attributes" dynamic="no" visible="yes">
+    <richText>Time Tracker: A big push forward in project planning, refactoring and testing</richText>
+  </textBox>
+  <textBox id="generic-body-attributes" dynamic="no" visible="yes">
+    <richText>Lots of good work today!  My next Time Tracker work day is Wed, Apr 2 at 5:30pm PDT.  Work will continue on refactoring.&#xD;&#xD;&lt;b&gt;User Support (0.52 hrs)&#xD;&lt;/b&gt;I reviewed several of the emails from the mailing list (from last summer), and linked them to feature requests in the issue tracker.&#xD;&#xD;&lt;b&gt;Project Planning (0.88 hrs)&#xD;&lt;/b&gt;I started scheduling time when I will work on Time Tracker.  I plan to do development work three hours each week.  &#xD;&lt;b&gt;&#xD;Refactor Document Model (2.67 hrs)&#xD;&lt;/b&gt;I did a lot of cleanup after the main refactoring to a Document-Based architecture.  The main window now loads, displays and closes correctly.  The next step is to connect the models to the NSArrayControllers-- I still need to learn the appropriate way to do this.&#xD;&#xD;&lt;b&gt;Create user stories / acceptance tests (3 mins)&#xD;&lt;/b&gt;I started a specifications document that lists all the features that need to be working before a Time Tracker release is made.  (&lt;a href="http://github.com/avh4/time-tracker-for-mac/tree/refact/specs/specs.txt"&gt;specs.txt&lt;/a&gt;)</richText>
+  </textBox>
+  <textBox id="generic-datefield-attributes" dynamic="no" visible="yes">
+    <richText>&lt;b&gt;Friday, March 28, 2008&lt;/b&gt;</richText>
+  </textBox>
+  <image id="generic-picture-attributes" dynamic="no" visible="yes" src="28_A_big_push_forward_in_project_planning,_refactoring_and_testing_files/shapeimage_2.jpg" left="0px" top="0px" width="400px" height="300px"/>
+</content>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:iweb="http://www.apple.com/iweb" version="2.0">
+  <channel>
+    <title>Development Progress</title>
+    <link>http://www.avh4.net/Site/Development_Progress/Development_Progress.html</link>
+    <description>Next work day:&lt;br/&gt;&lt;br/&gt;Time Tracker -- Wed, Apr 2</description>
+    <generator>iWeb 2.0.3</generator>
+    <image>
+      <url>http://www.avh4.net/Site/Development_Progress/Development_Progress_files/chess_inverted.jpg</url>
+      <title>Development Progress</title>
+      <link>http://www.avh4.net/Site/Development_Progress/Development_Progress.html</link>
+    </image>
+    <item>
+      <title>BG Track: My first iPhone application!</title>
+      <link>http://www.avh4.net/Site/Development_Progress/Entries/2008/3/30_BG_Track%3A_My_first_iPhone_application%21.html</link>
+      <guid isPermaLink="false">d2040037-7858-45e4-b4fa-495269ba7e8b</guid>
+      <pubDate>Sun, 30 Mar 2008 19:18:48 -0700</pubDate>
+      <description>&lt;a href=&quot;http://www.avh4.net/Site/Development_Progress/Entries/2008/3/30_BG_Track%3A_My_first_iPhone_application%21_files/Re_%20iPhone%20Simulator%20scaled.jpg&quot;&gt;&lt;img src=&quot;http://www.avh4.net/Site/Development_Progress/Media/Re_%20iPhone%20Simulator%20scaled_1.jpg&quot; style=&quot;float:left; padding-right:10px; padding-bottom:10px; width:176px; height:311px;&quot;/&gt;&lt;/a&gt;Next steps: User authentication&lt;br/&gt;&lt;br/&gt;Rails development (4:15)&lt;br/&gt;Learned about scaffolds, routes, controllers, and unit tests.  Learned how to make iPhone-styled buttons, control the iPhone viewport, and set the iPhone application icon.</description>
+      <enclosure url="http://www.avh4.net/Site/Development_Progress/Entries/2008/3/30_BG_Track%3A_My_first_iPhone_application%21_files/Re_%20iPhone%20Simulator%20scaled.jpg" length="47672" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Time Tracker: A big push forward in project planning, refactoring and testing</title>
+      <link>http://www.avh4.net/Site/Development_Progress/Entries/2008/3/28_A_big_push_forward_in_project_planning,_refactoring_and_testing.html</link>
+      <guid isPermaLink="false">289e6eb5-502b-4913-aa25-d0d68a0c291f</guid>
+      <pubDate>Fri, 28 Mar 2008 20:57:25 -0700</pubDate>
+      <description>&lt;a href=&quot;http://www.avh4.net/Site/Development_Progress/Entries/2008/3/28_A_big_push_forward_in_project_planning,_refactoring_and_testing_files/FogBugz_%20Filter_%20All%20open%20cases%20assigned%20to%20Aaron%20VonderHaar-1.jpg&quot;&gt;&lt;img src=&quot;http://www.avh4.net/Site/Development_Progress/Media/FogBugz_%20Filter_%20All%20open%20cases%20assigned%20to%20Aaron%20VonderHaar-1_1.jpg&quot; style=&quot;float:left; padding-right:10px; padding-bottom:10px; width:176px; height:132px;&quot;/&gt;&lt;/a&gt;Lots of good work today!  My next Time Tracker work day is Wed, Apr 2 at 5:30pm PDT.  Work will continue on refactoring.&lt;br/&gt;&lt;br/&gt;User Support (0.52 hrs)&lt;br/&gt;I reviewed several of the emails from the mailing list (from last summer), and linked them to feature requests in the issue tracker.&lt;br/&gt;&lt;br/&gt;Project Planning (0.88 hrs)&lt;br/&gt;I started scheduling time when I will work on Time Tracker.  I plan to do development work three hours each week.  &lt;br/&gt;&lt;br/&gt;Refactor Document Model (2.67 hrs)&lt;br/&gt;I did a lot of cleanup after the main refactoring to a Document-Based architecture.  The main window now loads, displays and closes correctly.  The next step is to connect the models to the NSArrayControllers-- I still need to learn the appropriate way to do this.&lt;br/&gt;&lt;br/&gt;Create user stories / acceptance tests (3 mins)&lt;br/&gt;I started a specifications document that lists all the features that need to be working before a Time Tracker release is made.  (&lt;a href=&quot;http://github.com/avh4/time-tracker-for-mac/tree/refact/specs/specs.txt&quot;&gt;specs.txt&lt;/a&gt;)</description>
+      <enclosure url="http://www.avh4.net/Site/Development_Progress/Entries/2008/3/28_A_big_push_forward_in_project_planning,_refactoring_and_testing_files/FogBugz_%20Filter_%20All%20open%20cases%20assigned%20to%20Aaron%20VonderHaar-1.jpg" length="34162" type="image/jpeg"/>
+    </item>
+  </channel>
+</rss>

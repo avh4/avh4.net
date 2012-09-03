@@ -1,0 +1,3 @@
+Redirect /public/ http://public.avh4.net/public/
+Redirect /whatdjed http://public.avh4.net/whatdjed/
+Redirect /wheredancing http://public.avh4.net/wheredancing/

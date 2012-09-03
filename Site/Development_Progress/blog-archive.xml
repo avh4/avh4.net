@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rss xmlns:iweb="http://www.apple.com/iweb" version="2.0">
+  <channel>
+    <title>Development Progress</title>
+    <link>http://www.avh4.net/Site/Development_Progress</link>
+    <description>Next work day:
+
+Time Tracker -- Wed, Apr 2</description>
+    <item>
+      <title>BG Track: My first iPhone application!</title>
+      <link>http://www.avh4.net/Site/Development_Progress/Entries/2008/3/30_BG_Track%3A_My_first_iPhone_application%21.html</link>
+      <guid isPermaLink="false">d2040037-7858-45e4-b4fa-495269ba7e8b</guid>
+      <pubDate>Sun, 30 Mar 2008 19:18:48 -0700</pubDate>
+      <iweb:comment enabled="0" link="http://www.avh4.net/Site/Development_Progress/Entries/2008/3/30_BG_Track%3A_My_first_iPhone_application%21.html#comment_layer" count="0"></iweb:comment>
+    </item>
+    <item>
+      <title>Time Tracker: A big push forward in project planning, refactoring and testing</title>
+      <link>http://www.avh4.net/Site/Development_Progress/Entries/2008/3/28_A_big_push_forward_in_project_planning,_refactoring_and_testing.html</link>
+      <guid isPermaLink="false">289e6eb5-502b-4913-aa25-d0d68a0c291f</guid>
+      <pubDate>Fri, 28 Mar 2008 20:57:25 -0700</pubDate>
+      <iweb:comment enabled="0" link="http://www.avh4.net/Site/Development_Progress/Entries/2008/3/28_A_big_push_forward_in_project_planning,_refactoring_and_testing.html#comment_layer" count="0"></iweb:comment>
+    </item>
+    <iweb:dateFormat>EEEE, MMMM d, yyyy</iweb:dateFormat>
+    <iweb:baseURL>http://www.avh4.net/Site/Development_Progress</iweb:baseURL>
+    <iweb:maximumSummaryItems>5</iweb:maximumSummaryItems>
+  </channel>
+</rss>
