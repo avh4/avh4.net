@@ -2,3 +2,12 @@
 
 @import "settings";
 @import "imports";
+
+
+.main-tile {
+	@extend .museo-slab;
+	@extend .double-pad-top;
+	@extend .double-pad-bottom;
+	@extend .center;
+  @extend .align-center;
+}
